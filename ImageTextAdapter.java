@@ -10,16 +10,7 @@
         }
 
         @Override
-        public View getDropDownView(int position, View convertView, ViewGroup parent) {
-            return getCustomView(position, convertView, parent);
-        }
-
-        @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            return getCustomView(position, convertView, parent);
-        }
-
-        public View getCustomView(int position, View convertView, ViewGroup parent) {
             View row = getLayoutInflater().inflate(R.layout.row, parent, false);
 
             TextView textView = (TextView) row.findViewById(R.id.textView);
@@ -29,5 +20,10 @@
             imageView.setImageResource(images[position]);
 
             return row;
+        }
+
+        @Override
+        public View getDropDownView(int position, View convertView, ViewGroup parent) {
+            return getView(position, convertView, parent);
         }
     }
